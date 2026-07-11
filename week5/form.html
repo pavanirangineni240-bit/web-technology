@@ -1,0 +1,90 @@
+<html>
+    <body bgcolor="#C8A2C8" align="center">
+        <h2 Aalign="center">JOB REGISTRATION FORM</h2>
+        <style>
+            input[type=text]
+            {
+                width:50%;
+                border: 2px solid black;
+                background-color:rgb(207, 135, 147);
+                padding: 10px;
+                margin: 10px;
+                font-size: 20px;
+            }
+            input[type=email]
+            {   
+                width:50%;
+                border: 2px solid black;
+                background-color:#583e58;
+                padding: 10px;
+                margin: 10px;
+                font-size: 20px;
+            }
+            input[type=number]
+            {
+                width:50%;
+                border: 2px solid black;
+                background-color:#acd7e6;
+                padding: 10px;
+                margin: 10px;
+                font-size: 20px;
+            }
+
+        </style>
+        <form align="center">
+            Name<input type="text" id="one" placeholder="enter your name"><br>
+            Email<input type="text" id="two" placeholder="enter your email"><br>
+            Mobile<input type="number" id="three" placeholder="enter your mobile no"><br>
+            <input type="button" value="submit" onclick="return validate()">
+        </form>
+        <script>
+            function validate()
+            {
+                var un=document.getElementById("one");
+                 var uname=un.value;
+                 var mail=document.getElementById("two");
+                 var email=mail.value;
+                 var mn=document.getElementById("three");
+                 var mob=mn.value;
+                 var unre=/^[a-z A-Z]+[0-9a-zA-Z._]*$/;
+                 var ere=/^[a-zA-Z]+([\._]?\w+)*@\w([\._]?\w+)*(\.\w{2,3})+$/;
+                 var mre=/^[6-9][0-9]{9}$/;
+                 if(unre.test(uname))
+                 {
+                    if(ere.test(email))
+                 {     
+                    if(mre.test(mob))
+                    {
+                        alert("Successfully Registered!!");
+                        return true;
+                    }
+                    else
+                    {
+                        return error(mn);
+                    }
+                 }
+                 else
+                 {
+                    return error(mail);
+                 }
+                }
+                else
+                {
+                    return error(un);
+                }
+            }
+            function error(ele)
+            {
+                alert("INVALID!!!");
+                ele.style.border="2px solid red";
+                ele.value="";
+                ele.placeholder="INVALID!!";
+                ele.focus();
+                return false;
+            }
+        </script>
+    </body>
+    <h3 align="center">Pavani Rangineni </h3>
+    <h3 align="center">24881A1253</h3>
+
+</html>
